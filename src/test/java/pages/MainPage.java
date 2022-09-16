@@ -16,21 +16,32 @@ public class MainPage extends BasePage{
     private WebElement inputSearchMovie;
     @FindBy(css = "#inner_search_form>input[type='submit']")
     private WebElement buttonSearchMovie;
+    @FindBy(css = "a.no_click.k-link[href='/movie']")
+    private WebElement moviesHeaderItem;
+    @FindBy(css = "a.k-link.k-menu-link[href='/movie/top-rated']")
+    private WebElement moviesTopRatedItem;
 
     public MainPage(WebDriver driver) {
         super(driver);
     }
 
     public LoginPage goToLoginPage(){
-        WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         explicitWait.until(ExpectedConditions.elementToBeClickable(goToLoginButton)).click();
         return new LoginPage(driver);
     }
 
     public SearchPage searchMovie(String movieName){
         inputSearchMovie.sendKeys(movieName);
-        WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         explicitWait.until(ExpectedConditions.elementToBeClickable(buttonSearchMovie)).click();
         return new SearchPage(driver);
+    }
+
+    public TopRatedPage goToTopRated(){
+        moviesHeaderItem.click();
+        WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        explicitWait.until(ExpectedConditions.elementToBeClickable(moviesTopRatedItem)).click();
+        return new TopRatedPage(driver);
     }
 }
