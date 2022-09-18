@@ -17,6 +17,7 @@ public class ActorPage extends BasePage{
     }
 
     public List<String> getTimelineMovieTitles(){
+        logger.debug("Getting list of movie titles in actor's timeline");
         return timelineMovieTitles.stream().map(WebElement::getText).map(String::toLowerCase).collect(Collectors.toList());
     }
 }

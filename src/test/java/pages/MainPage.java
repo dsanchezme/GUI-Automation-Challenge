@@ -27,18 +27,22 @@ public class MainPage extends BasePage{
 
     public LoginPage goToLoginPage(){
         WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        logger.debug("Going to login page");
         explicitWait.until(ExpectedConditions.elementToBeClickable(goToLoginButton)).click();
         return new LoginPage(driver);
     }
 
     public SearchPage searchMovie(String movieName){
+        logger.debug("Typing movie to search");
         inputSearchMovie.sendKeys(movieName);
         WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        logger.debug("Searching movie...");
         explicitWait.until(ExpectedConditions.elementToBeClickable(buttonSearchMovie)).click();
         return new SearchPage(driver);
     }
 
     public TopRatedPage goToTopRated(){
+        logger.debug("Going to Top rated movies page");
         moviesHeaderItem.click();
         WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         explicitWait.until(ExpectedConditions.elementToBeClickable(moviesTopRatedItem)).click();

@@ -22,10 +22,12 @@ public class MoviePage extends BasePage{
     }
 
     public List<String> getMovieGenresList(){
+        logger.debug("Getting list of genres displayed for a movie");
         return allMovieGenres.stream().map(WebElement::getText).map(String::toLowerCase).collect(Collectors.toList());
     }
 
     public ActorPage goToFirstActorPage(){
+        logger.debug("Going to the page for the first actor card displayed");
         WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(15));
         explicitWait.until(ExpectedConditions.elementToBeClickable(firstActorCard)).click();
         return new ActorPage(driver);

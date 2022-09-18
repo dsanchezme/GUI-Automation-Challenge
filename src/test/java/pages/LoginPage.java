@@ -28,9 +28,13 @@ public class LoginPage extends BasePage{
     }
 
     public void login(String username, String password){
+        logger.info("User login process...");
         WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        logger.debug("Entering username");
         usernameInput.sendKeys(username);
+        logger.debug("Entering password");
         passwordInput.sendKeys(password);
+        logger.debug("Validating credentials...");
         explicitWait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
     }
 

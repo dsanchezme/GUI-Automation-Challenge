@@ -12,6 +12,7 @@ public class FilterTests extends Hooks{
 
     @Test
     public void filterByActionGenre(){
+        logger.info("Testing filtering process by genre for action movies");
         MainPage mainPage = new MainPage(driver);
         TopRatedPage topRatedPage = mainPage.goToTopRated();
         String genreToFilter = "action";
@@ -23,12 +24,13 @@ public class FilterTests extends Hooks{
 
     @Test
     public void ascendingDatesAfterSort(){
+        logger.info("Testing sorting process by date of release in ascending order");
         MainPage mainPage = new MainPage(driver);
         TopRatedPage topRatedPage = mainPage.goToTopRated();
         topRatedPage.sortByDateAscending();
         int numberOfDates = 4;
         List<Date> dateResults = topRatedPage.getNDatesFromSortResult(numberOfDates);
-        Boolean areDatesAscending = true;
+        boolean areDatesAscending = true;
         for (int i=0; i < numberOfDates-1; i++){
             areDatesAscending = areDatesAscending && dateResults.get(i).before(dateResults.get(i+1));
         }

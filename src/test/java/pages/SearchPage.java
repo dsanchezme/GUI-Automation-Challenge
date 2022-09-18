@@ -20,10 +20,12 @@ public class SearchPage extends BasePage{
     }
 
     public String getFirstMovieResult(){
+        logger.debug("Getting title for first movie result after search");
         return firstMovieResultTitle.getText();
     }
 
     public MoviePage goToFirstMovieResult(){
+        logger.debug("Going to the page of the first movie result after search");
         WebDriverWait explicitWait = new WebDriverWait(driver, Duration.ofSeconds(15));
         explicitWait.until(ExpectedConditions.elementToBeClickable(firstMovieResultLink)).click();
         return new MoviePage(driver);
