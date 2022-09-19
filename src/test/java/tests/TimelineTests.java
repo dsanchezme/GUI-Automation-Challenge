@@ -1,3 +1,6 @@
+package tests;
+
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ActorPage;
@@ -7,7 +10,8 @@ import pages.SearchPage;
 
 public class TimelineTests extends Hooks{
 
-    @Test
+    @Test(description = "Validate Acting Timeline")
+    @Description("Validating acting timeline")
     public void movieInActingTimeline(){
         logger.info("Testing presence of movie title in an actor's timeline");
         MainPage mainPage = new MainPage(driver);

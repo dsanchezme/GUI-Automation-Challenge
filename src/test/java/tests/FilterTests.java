@@ -1,3 +1,6 @@
+package tests;
+
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainPage;
@@ -10,7 +13,8 @@ import java.util.List;
 
 public class FilterTests extends Hooks{
 
-    @Test
+    @Test(description = "Verify Movie Genre Filter")
+    @Description("Verify filter by genre for action movies")
     public void filterByActionGenre(){
         logger.info("Testing filtering process by genre for action movies");
         MainPage mainPage = new MainPage(driver);
@@ -22,7 +26,8 @@ public class FilterTests extends Hooks{
         Assert.assertTrue(moviePage.getMovieGenresList().contains(genreToFilter.toLowerCase()));
     }
 
-    @Test
+    @Test(description = "Sort by Dates on Ascending Order")
+    @Description("Sort movies by date of release on ascending order")
     public void ascendingDatesAfterSort(){
         logger.info("Testing sorting process by date of release in ascending order");
         MainPage mainPage = new MainPage(driver);

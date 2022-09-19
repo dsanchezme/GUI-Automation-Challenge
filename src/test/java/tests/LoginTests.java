@@ -1,3 +1,7 @@
+package tests;
+
+import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import pages.AccountPage;
 import pages.LoginPage;
 import pages.MainPage;
@@ -6,7 +10,9 @@ import org.testng.annotations.Test;
 
 public class LoginTests extends Hooks{
 
-    @Test
+
+    @Test(description = "Successful login")
+    @Description("Successful login when user enters valid credentials")
     public void validUserLogin(){
         logger.info("Testing login process with valid credentials");
         MainPage mainPage = new MainPage(driver);
@@ -19,7 +25,8 @@ public class LoginTests extends Hooks{
         logger.debug("Login process succeed!");
     }
 
-    @Test
+    @Test(description = "Failed login - Red box")
+    @Description("Failed login and Red box displayed when user enters invalid credentials")
     public void redBoxInvalidUserLogin(){
         logger.info("Testing appearance of displayed box when login when invalid credentials");
         MainPage mainPage = new MainPage(driver);
@@ -30,7 +37,8 @@ public class LoginTests extends Hooks{
         Assert.assertTrue(loginPage.getLoginErrorMessageTitleClass().contains("red"), "The error message box is not red");
     }
 
-    @Test
+    @Test(description = "Failed login - Two error messages")
+    @Description("Failed login and two error messages displayed when user enters invalid credentials")
     public void twoItemsInvalidUserLogin(){
         logger.info("Testing presence of 2 messages displayed when login when invalid credentials");
         MainPage mainPage = new MainPage(driver);

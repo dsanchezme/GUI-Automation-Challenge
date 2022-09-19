@@ -3,25 +3,25 @@
 <suite name="TheMovieDB-TestSuite" verbose="1" >
     <test name="Login">
         <classes>
-            <class name="LoginTests" />
+            <class name="tests.LoginTests" />
         </classes>
     </test>
 
     <test name="Filtering">
         <classes>
-            <class name="FilterTests"/>
+            <class name="tests.FilterTests"/>
         </classes>
     </test>
 
     <test name="Searching">
         <classes>
-            <class name="SearchTests"/>
+            <class name="tests.SearchTests"/>
         </classes>
     </test>
 
     <test name="ActingTimeline">
         <classes>
-            <class name="TimelineTests"/>
+            <class name="tests.TimelineTests"/>
         </classes>
     </test>
 </suite>
